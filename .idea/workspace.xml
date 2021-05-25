@@ -1,13 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ef6d62d1-21b2-4468-9535-8ad58a9eaba9" name="Default Changelist" comment="" />
+    <list default="true" id="ef6d62d1-21b2-4468-9535-8ad58a9eaba9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/readme.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/recommender system explaination-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/.ipynb_checkpoints/recommender system explaination-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ElbowZoom.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EvaluateElbow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LabelEncoding.py" beforeDir="false" afterPath="$PROJECT_DIR$/LabelEncoding.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TranslateJob.py" beforeDir="false" afterPath="$PROJECT_DIR$/TranslateJob.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modeling.py" beforeDir="false" afterPath="$PROJECT_DIR$/modeling.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prediction.py" beforeDir="false" afterPath="$PROJECT_DIR$/prediction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommender system explaination.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/recommender system explaination.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/searching.py" beforeDir="false" afterPath="$PROJECT_DIR$/searching.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1sqgwDDDSPPpHJQXtg3hEzXi2XE" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -15,6 +32,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Dissertation" />
   </component>
   <component name="RunManager" selected="Python.results">

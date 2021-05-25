@@ -3,6 +3,12 @@ import pickle
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 
+def clean_role_name(df):
+    df = df.str.split("/", n = 1, expand = True)[0]
+    df = df.str.lower()
+    df = df.str.strip()
+    return df
+
 active = pd.read_csv("active_en_sub.csv")
 active.dropna(subset=['role_name', 'sub_role_name', 'company_name', 'province'], inplace=True)
 active = active[~active.province.str.contains("Nan")]
@@ -10,13 +16,9 @@ active = active[~active.province.str.contains("Nan")]
 pd.set_option('display.max_columns', None)
 pd.set_option('display.max_rows', None)
 
-active['sub_role_name'] = active['sub_role_name'].str.split("/", n = 1, expand = True)[0]
-active['sub_role_name'] = active['sub_role_name'].str.lower()
-active['sub_role_name'] = active['sub_role_name'].str.strip()
+active['role_name'] = clean_role_name(active['role_name'])
 
-active['role_name'] = active['role_name'].str.split("/", n = 1, expand = True)[0]
-active['role_name'] = active['role_name'].str.lower()
-active['role_name'] = active['role_name'].str.strip()
+active['sub_role_name'] = clean_role_name(active['sub_role_name'])
 
 a_file = open("roles.pkl", "rb")
 roles = pickle.load(a_file)

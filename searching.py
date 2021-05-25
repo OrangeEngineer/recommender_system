@@ -45,6 +45,6 @@ for ind in df.index:
 recommendation = df[['user_id','recommendation']]
 recommendation['recommendation'] = recommendation['recommendation'].str.strip('[]')
 res = recommendation.groupby('user_id').agg({'recommendation': lambda x: ','.join(x) })
-res.to_csv("result.csv",index=False)
+res.to_csv("Recommendation.csv",index=False)
 
 

@@ -3,6 +3,12 @@ from sklearn.preprocessing import LabelEncoder
 from kmodes.kmodes import KModes
 import pickle
 
+def clean_role_name(df):
+    df = df.str.split("/", n = 1, expand = True)[0]
+    df = df.str.lower()
+    df = df.str.strip()
+    return df
+
 previous = pd.read_csv("previous_en_sub.csv")
 
 previous.dropna(subset=['role_name','sub_role_name','company_name','province'], inplace=True)
@@ -11,14 +17,9 @@ previous = previous[~previous.province.str.contains("Nan")]
 pd.set_option('display.max_columns', None)
 pd.set_option('display.max_rows', None)
 
-previous['sub_role_name'] = previous['sub_role_name'].str.split("/", n = 1, expand = True)[0]
-previous['sub_role_name'] = previous['sub_role_name'].str.lower()
-previous['sub_role_name'] = previous['sub_role_name'].str.strip()
+previous['role_name'] = clean_role_name(previous['role_name'])
 
-previous['role_name'] = previous['role_name'].str.split("/", n = 1, expand = True)[0]
-previous['role_name'] = previous['role_name'].str.lower()
-previous['role_name'] = previous['role_name'].str.strip()
-
+previous['sub_role_name'] = clean_role_name(previous['sub_role_name'])
 
 ################################## Load Roles Dictionary ############################################
 

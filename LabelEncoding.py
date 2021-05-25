@@ -3,24 +3,11 @@ from fuzzywuzzy import process
 import pickle
 from sklearn.preprocessing import LabelEncoder
 
-previous = pd.read_csv("previous_en_sub.csv")
-active = pd.read_csv("active_en_sub.csv")
-
-all_data = pd.concat([previous, active])
-
-all_data.dropna(subset=['role_name', 'sub_role_name', 'company_name', 'province'], inplace=True)
-all_data = all_data[~all_data.province.str.contains("Nan")]
-
-pd.set_option('display.max_columns', None)
-pd.set_option('display.max_rows', None)
-
-all_data['sub_role_name'] = all_data['sub_role_name'].str.split("/", n = 1, expand = True)[0]
-all_data['sub_role_name'] = all_data['sub_role_name'].str.lower()
-all_data['sub_role_name'] = all_data['sub_role_name'].str.strip()
-
-all_data['role_name'] = all_data['role_name'].str.split("/", n = 1, expand = True)[0]
-all_data['role_name'] = all_data['role_name'].str.lower()
-all_data['role_name'] = all_data['role_name'].str.strip()
+def clean_role_name(df):
+    df = df.str.split("/", n = 1, expand = True)[0]
+    df = df.str.lower()
+    df = df.str.strip()
+    return df
 
 def matching_process(df):
     role_dict = {}
@@ -40,6 +27,22 @@ def matching_process(df):
                     role_dict[role] = match[0]
     print(role_dict)
     return (role_dict)
+
+previous = pd.read_csv("previous_en_sub.csv")
+active = pd.read_csv("active_en_sub.csv")
+
+all_data = pd.concat([previous, active])
+
+all_data.dropna(subset=['role_name', 'sub_role_name', 'company_name', 'province'], inplace=True)
+all_data = all_data[~all_data.province.str.contains("Nan")]
+
+pd.set_option('display.max_columns', None)
+pd.set_option('display.max_rows', None)
+
+all_data['role_name'] = clean_role_name(all_data['role_name'])
+
+all_data['sub_role_name'] = clean_role_name(all_data['sub_role_name'])
+
 
 roles = matching_process(all_data['role_name'])
 
